@@ -1,25 +1,26 @@
+import java.util.ArrayList;
+
 public class Piece{
     public int position;
     public String player;
     public ArrayList possibleMoves;
 
-    public Piece(int position) {
+    public Piece(int position, Board board) {
         this.position = position;
-        this.board = board;
-        this.possibleMoves = calculatePossibleMoves();
+        this.possibleMoves = calculatePossibleMoves(board);
     }
 
-    public static ArrayList calculatePossibleMoves(Board board){
-      ArrayList moves = new ArrayList;
-      for(point : board.points){
-        if(point.canBeAttacked == true && !point.player.equals(this.player) && respectsDirection(point.position)){
-          moves.add(point.position);
+    public ArrayList<Integer> calculatePossibleMoves(Board board){
+      ArrayList<Integer> moves = new ArrayList<>();
+      for(Point pointToCheck : board.points){
+        if(pointToCheck.canBeAttacked == true && !pointToCheck.player.equals(pointToCheck.player) && respectsDirection(pointToCheck.position)){
+          moves.add(pointToCheck.position);
         }
       }
       return moves;
     }
 
-    public static boolean respectsDirection(int newPosition){
+    public boolean respectsDirection(int newPosition){
       if(this.player == "player1" && this.position < newPosition){
         return true;
       }
@@ -35,7 +36,7 @@ public class Piece{
 }
 
 
-position : 1
+// position : 1
 
-player 1 : 2, 3, 4 ....
-player 2 : 0
+// player 1 : 2, 3, 4 ....
+// player 2 : 0
