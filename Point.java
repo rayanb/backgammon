@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Point {
 
   public boolean canAttack;
@@ -6,14 +8,14 @@ public class Point {
   public int position;
 
   public Point(ArrayList<Piece> startingPieces, int position){
-    if(startingPieces){
+    if(startingPieces != null){
       this.pieces = startingPieces;
       this.player = pieces.get(0).player;
-      this.canAttack = False;
+      this.canAttack = false;
     }
     else{
       this.player = null;
-      this.canAttack = True;
+      this.canAttack = true;
     }
     this.position = position;
   }
