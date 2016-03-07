@@ -5,9 +5,9 @@ public class Point {
   public ArrayList<Piece> pieces;
   public int position;
 
-  public Point(ArrayList<Piece> pieces, int position){
-    if(pieces){
-      this.pieces = pieces;
+  public Point(ArrayList<Piece> startingPieces, int position){
+    if(startingPieces){
+      this.pieces = startingPieces;
       this.player = pieces.get(0).player;
       this.canAttack = False;
     }
