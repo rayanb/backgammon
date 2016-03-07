@@ -11,11 +11,11 @@ public class Point {
     if(startingPieces != null){
       this.pieces = startingPieces;
       this.player = pieces.get(0).player;
-      this.canAttack = False;
+      this.canAttack = false;
     }
     else{
       this.player = null;
-      this.canAttack = True;
+      this.canAttack = true;
     }
     this.position = position;
   }
