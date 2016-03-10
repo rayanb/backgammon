@@ -1,24 +1,25 @@
 import java.util.ArrayList;
 
 public class Point {
+    public Board board;
+    public boolean isVulnerable;
+    public String player;
+    public ArrayList<Piece> pieces;
+    public int position;
 
-    public boolean canAttack;
-    public boolean canBeAttacked;
-  public String player;
-  public ArrayList<Piece> pieces;
-  public int position;
+    public Point(ArrayList<Piece> startingPieces, int position, Board board) {
 
-  public Point(ArrayList<Piece> startingPieces, int position){
-    if(startingPieces != null){
-      this.pieces = startingPieces;
-      this.player = pieces.get(0).player;
-      this.canBeAttacked = false;
     }
-    else{
-      this.player = null;
-      this.canAttack = true;
-    }
-    this.position = position;
-  }
 
+    public boolean isVulnerable() {
+        if (pieces.size() > 1)
+            return setIsVulnerable(false);
+        else
+            return setIsVulnerable(true);
+    }
+
+    public boolean setIsVulnerable(boolean isVulnerable) {
+        this.isVulnerable = isVulnerable;
+        return this.isVulnerable;
+    }
 }
