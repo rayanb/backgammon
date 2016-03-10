@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Point {
 
-  public boolean canBeAttacked;
+    public boolean canAttack;
+    public boolean canBeAttacked;
   public String player;
   public ArrayList<Piece> pieces;
   public int position;
