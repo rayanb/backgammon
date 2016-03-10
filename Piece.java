@@ -13,7 +13,7 @@ public class Piece{
     public ArrayList<Integer> calculatePossibleMoves(Board board){
       ArrayList<Integer> moves = new ArrayList<>();
       for(Point pointToCheck : board.points){
-        if(pointToCheck.canBeAttacked == true && !pointToCheck.player.equals(pointToCheck.player) && respectsDirection(pointToCheck.position)){
+        if(pointToCheck.canBeAttacked && !this.player.equals(pointToCheck.player) && this.respectsDirection(pointToCheck.position)){
           moves.add(pointToCheck.position);
         }
       }
@@ -21,10 +21,10 @@ public class Piece{
     }
 
     public boolean respectsDirection(int newPosition){
-      if(this.player == "player1" && this.position < newPosition){
+      if(this.player.equals("player1") && this.position < newPosition){
         return true;
       }
-      else if(this.player == "player2" && this.position > newPosition){
+      else if(this.player.equals("player2") && this.position > newPosition){
         return true;
       }
       else{
