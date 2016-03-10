@@ -5,19 +5,21 @@ public class Piece {
     public String player;
     public ArrayList<Integer> possibleMoves;
 
-    public Piece(Point point, Board board) {
+    public Piece(Point point, String player) {
         this.point = point;
-        this.possibleMoves = calculatePossibleMoves(board);
+        this.player = player;
+        calculatePossibleMoves();
     }
 
-    public ArrayList<Integer> calculatePossibleMoves(Board board) {
+    public void calculatePossibleMoves() {
+        Board board = this.point.board;
         ArrayList<Integer> moves = new ArrayList<>();
         for (Point pointToCheck : board.points) {
-            if (pointToCheck.isVulnerable() && !this.player.equals(pointToCheck.player) && this.respectsDirection(pointToCheck)) {
+            if (pointToCheck.isVulnerable && !this.player.equals(pointToCheck.player) && this.respectsDirection(pointToCheck)) {
                 moves.add(pointToCheck.position);
             }
         }
-        return moves;
+        this.possibleMoves =  moves;
     }
 
     public boolean respectsDirection(Point newPosition) {
@@ -25,9 +27,3 @@ public class Piece {
     }
 
 }
-
-
-// point : 1
-
-// player 1 : 2, 3, 4 ....
-// player 2 : 0
